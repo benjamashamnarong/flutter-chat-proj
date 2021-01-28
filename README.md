@@ -1,4 +1,4 @@
-# flutter-chat-proj
+# flutter_chat_proj
 
 A Flutter Chat Project.
 
