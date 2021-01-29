@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_proj/login.dart';
+import 'package:flutter_chat_proj/loginscreen.dart';
 // import 'package:flutter_chat_proj/test1.dart';
 
 void main() async {
@@ -10,10 +10,13 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+
+  final String appTitle = 'Flutter Chat Proj';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         // This makes the visual density adapt to the platform that you run
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
       // home: Test1(),
-      home: Login(),
+      home: LoginScreen(title: appTitle),
     );
   }
 }
