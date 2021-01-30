@@ -22,9 +22,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
     _prefs = await SharedPreferences.getInstance();
 
-    try {
-      GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      debugPrint('after _googleSignIn.signIn');
+    debugPrint('before _googleSignIn.signIn');
+    
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn().catchError((err) {
+      debugPrint('----- $err -----');
+    });
+
+    debugPrint('after _googleSignIn.signIn');
+
+    if (googleUser != null) {
       GoogleSignInAuthentication googleAuth = await googleUser.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
@@ -32,8 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       User firebaseUser =
           (await _firebaseAuth.signInWithCredential(credential)).user;
-    } catch (error) {
-      debugPrint(error);
+    } else {
+      debugPrint('googleUser == null');
     }
   }
 
