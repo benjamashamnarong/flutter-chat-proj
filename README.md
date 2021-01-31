@@ -8,4 +8,5 @@ https://medium.com/flutter-community/building-a-chat-app-with-flutter-and-fireba
 
 https://github.com/duytq94/flutter-chat-demo
 
+https://developers.google.com/android/guides/client-auth
 
